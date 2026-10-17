@@ -1742,41 +1742,29 @@ button {
   }
 
   .nav-container {
-    padding: 12px var(--container-padding);
+    padding: 14px var(--container-padding);
     align-items: center;
     justify-content: space-between;
+    position: relative;
   }
 
   .nav-logo {
     font-size: 1.5rem; /* 24px Anton per Figma node 48:474 */
     line-height: 1.1;
+    position: relative;
+    z-index: 1002;
   }
 
   .nav-cta-wrapper {
     display: flex;
     align-items: center;
-    gap: 10px;
+    position: relative;
+    z-index: 1002;
   }
 
+  /* Hide the navbar 'Get The Book' button on mobile as requested */
   .btn-nav {
-    width: auto !important; /* Prevents global .btn { width: 100%; } */
-    padding: 7px 14px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    height: 32px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-
-  .btn-nav .btn-arrow {
-    font-size: 0.8rem;
-    line-height: 1;
-    margin-left: 2px;
+    display: none !important;
   }
 
   .hamburger {
@@ -1785,9 +1773,9 @@ button {
     justify-content: center;
     align-items: center;
     gap: 5px;
-    width: 38px;
-    height: 38px;
-    padding: 6px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -1801,9 +1789,9 @@ button {
   .hamburger span {
     display: block;
     height: 2px;
-    width: 22px;
+    width: 24px;
     background-color: var(--dark-pitch);
-    transition: transform 0.25s ease, opacity 0.25s ease;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
     transform-origin: center;
   }
 
@@ -1820,24 +1808,33 @@ button {
     transform: translateY(-7px) rotate(-45deg);
   }
 
+  /* Full Page Mobile Navigation Menu */
   .nav-links {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 0;
     left: 0;
     right: 0;
-    width: 100%;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
     background-color: var(--bg-bone);
-    border-bottom: 2px solid var(--dark-pitch);
     flex-direction: column;
-    padding: 28px 24px 36px;
-    gap: 22px;
-    transform: translateY(-8px);
+    justify-content: center;
+    align-items: center;
+    padding: calc(var(--nav-height, 64px) + 24px) 24px 44px;
+    gap: 20px;
+    transform: translateY(-10px);
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
-    transition: transform 0.25s ease, opacity 0.25s ease, visibility 0.25s ease;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
-    z-index: 999;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, visibility 0.25s ease;
+    box-shadow: none;
+    border-bottom: none;
+    z-index: 1001;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
   }
 
   .nav-links.open {
@@ -1848,32 +1845,46 @@ button {
   }
 
   .nav-links a {
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 5.5vw, 1.85rem);
+    letter-spacing: 0.04em;
+    font-weight: 400;
+    text-transform: uppercase;
     width: 100%;
+    max-width: 320px;
     text-align: center;
-    padding: 8px 0;
+    padding: 10px 0;
     color: var(--text-dark);
+    border-bottom: 1px solid rgba(28, 28, 28, 0.08);
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:active {
+    color: var(--teal-primary);
   }
 
   .nav-drawer-cta {
     display: block;
     width: 100%;
-    margin-top: 10px;
+    max-width: 320px;
+    margin-top: 14px;
   }
 
   .btn-drawer {
     width: 100%;
-    padding: 14px 20px;
-    font-size: 0.875rem;
+    padding: 16px 20px;
+    font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-align: center;
     justify-content: center;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
   }
 
   body.menu-open {
     overflow: hidden;
+    touch-action: none;
   }
 
   /* --- 01 HERO SECTION --- */
