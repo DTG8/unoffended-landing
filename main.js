@@ -21,17 +21,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu = document.getElementById('navMenu');
 
   if (hamburgerBtn && navMenu) {
-    hamburgerBtn.addEventListener('click', () => {
-      hamburgerBtn.classList.toggle('active');
+    hamburgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = hamburgerBtn.classList.toggle('active');
       navMenu.classList.toggle('open');
+      hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('menu-open', isOpen);
     });
 
-    // Close menu when clicking any nav link
+    // Close menu when clicking any nav link (including drawer button)
     navMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         hamburgerBtn.classList.remove('active');
         navMenu.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
       });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('open') && !navMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+        hamburgerBtn.classList.remove('active');
+        navMenu.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      }
     });
   }
 
