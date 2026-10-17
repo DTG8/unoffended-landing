@@ -10,6 +10,7 @@
   --color-heading-dark: #1C1C1C;
   --dark-teal: #0E4C55;
   --accent-teal: #2A8E99;
+  --teal-primary: #2A8E99;
   --ice-teal: #DCEDEF;
   --yellow-accent: #F5C518;
   --white: #FFFFFF;
@@ -2021,21 +2022,31 @@ button {
     margin: 0 auto;
   }
 
+  .section-the-book .section-h2 {
+    font-size: clamp(2.25rem, 9.2vw, 2.7rem); /* 36px-42px bold Anton */
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+    color: var(--color-heading-dark);
+  }
+
   .book-subhead-teal {
-    font-size: 1.35rem;
+    font-size: clamp(1.4rem, 5.8vw, 1.7rem); /* 23px-27px Anton */
     line-height: 1.25;
-    margin-top: -8px;
-    margin-bottom: 20px;
+    margin-top: 0;
+    margin-bottom: 22px;
+    color: var(--accent-teal) !important;
   }
 
   .book-paragraphs p:first-child {
-    font-size: 1.25rem; /* 20px */
-    line-height: 1.45; /* 29px */
+    font-size: 1.125rem; /* 18px per Figma mobile node 48:533 */
+    line-height: 1.65;
+    color: var(--color-heading-dark);
   }
 
   .book-paragraphs p {
-    font-size: 1rem; /* 16px */
-    line-height: 1.68; /* 27px */
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.65;
   }
 
   .book-tool-tags {
