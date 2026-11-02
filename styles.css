@@ -361,20 +361,20 @@ button {
   position: relative;
   overflow: hidden;
   padding-top: 48px;
-  padding-bottom: 120px;
+  padding-bottom: 160px;
   background-color: var(--bg-bone);
 }
 
 /* Ambient Background Video - Positioned with balanced rightward alignment */
 .hero-video-bg {
   position: absolute;
-  top: clamp(170px, 16vw, 240px);
+  top: clamp(80px, 8vw, 140px);
   right: -20px;
   left: auto;
   width: 55vw;
   min-width: 540px;
   max-width: 1020px;
-  height: calc(100% - clamp(170px, 16vw, 240px));
+  height: calc(100% - clamp(80px, 8vw, 140px));
   overflow: hidden;
   pointer-events: none;
   z-index: 1;
@@ -409,6 +409,14 @@ button {
     transparent 85%,
     var(--bg-bone) 100%
   );
+}
+
+.desktop-only-video {
+  display: block;
+}
+
+.mobile-only-video {
+  display: none;
 }
 
 .hero-container {
@@ -471,6 +479,10 @@ button {
   font-weight: 400;
   line-height: 1.62; /* 34px */
   margin-bottom: 40px;
+}
+
+.hero-cta-group {
+  margin-top: 32px;
 }
 
 
@@ -551,9 +563,8 @@ button {
 }
 
 .two-column-text {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
+  display: block;
+  max-width: 1200px;
   margin-bottom: 64px;
   font-size: 1.3125rem; /* 21px in Figma Desktop */
   line-height: 1.62; /* 34px */
@@ -1733,6 +1744,46 @@ button {
   }
 }
 
+@media (max-width: 900px) {
+  .desktop-only-video {
+    display: none !important;
+  }
+
+  .mobile-only-video {
+    display: block !important;
+  }
+
+  .hero-mobile-book-container {
+    display: block;
+    width: 100%;
+    margin-top: 36px;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .hero-mobile-book-frame {
+    position: relative;
+    width: 100%;
+    max-width: clamp(260px, 82vw, 360px);
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    overflow: hidden;
+    background: transparent;
+    box-shadow: 0 20px 42px -10px rgba(0, 0, 0, 0.16), 0 4px 16px rgba(0, 0, 0, 0.05);
+  }
+
+  .hero-mobile-book-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transform: scale(1.05);
+    display: block;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
     --container-padding: 20px;
@@ -1897,27 +1948,6 @@ button {
     padding-top: 28px;
     padding-bottom: 56px;
     overflow: hidden;
-  }
-
-  .hero-video-bg {
-    top: 100px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    height: calc(100% - 100px);
-    overflow: hidden;
-  }
-
-  .hero-bg-video {
-    opacity: 0.28;
-    transform: scale(1.05) translateX(0);
-    object-position: center top;
-  }
-
-  .hero-bg-overlay {
-    background: rgba(244, 244, 241, 0.88);
   }
 
   .hero-title-block {
