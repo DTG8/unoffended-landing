@@ -2553,8 +2553,8 @@ button {
 .pickup-facts-grid {
   display: flex;
   gap: 36px;
-  padding: 0;
-  border: none;
+  padding-top: 28px;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .fact-item .fact-key {
@@ -2578,98 +2578,22 @@ button {
   color: var(--text-dark);
 }
 
-/* Visual Panel (Desktop 480x600, Dark Teal background, Yellow Half-Sun, Mockup Image, Ticket) */
+/* Visual Panel (Figma 480x600 Desktop, 336x420 Mobile) */
 .pickup-hero-visual {
   position: relative;
   width: 480px;
   height: 600px;
-  background-color: var(--dark-teal);
-  overflow: hidden;
   flex-shrink: 0;
-}
-
-.pickup-sun-half {
-  position: absolute;
-  bottom: 0;
-  left: 40px;
-  width: 400px;
-  height: 200px;
+  display: block;
   overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
+  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.2);
 }
 
-.pickup-sun-circle {
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background-color: var(--yellow-accent);
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.pickup-book-img {
-  position: absolute;
-  top: 54px;
-  left: 89px;
-  width: 302px;
-  height: 431px;
+.pickup-panel-img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  z-index: 2;
   display: block;
-  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.28));
-}
-
-.pickup-ticket-card {
-  position: absolute;
-  right: 24px;
-  bottom: 20px;
-  width: 187px;
-  height: 127px;
-  background-color: var(--white);
-  padding: 16px 18px;
-  box-sizing: border-box;
-  z-index: 3;
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.16);
-}
-
-.pickup-ticket-card .ticket-accent {
-  width: 29px;
-  height: 3px;
-  background-color: var(--yellow-accent);
-  margin-bottom: 8px;
-}
-
-.pickup-ticket-card .ticket-label {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 10.5px;
-  font-weight: 700;
-  line-height: 15px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--accent-teal);
-  margin-bottom: 4px;
-}
-
-.pickup-ticket-card .ticket-title {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 24px;
-  color: var(--text-dark);
-  margin-bottom: 4px;
-}
-
-.pickup-ticket-card .ticket-note {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 11.5px;
-  font-weight: 400;
-  line-height: 17px;
-  color: var(--text-muted);
 }
 
 /* 2. Locations Section */
@@ -3100,57 +3024,12 @@ button {
   }
 
   .pickup-hero-visual {
-    width: 336px;
-    height: 420px;
+    width: 100%;
+    max-width: 336px;
+    height: auto;
+    aspect-ratio: 336 / 420;
     margin: 20px auto 0;
     align-self: center;
-  }
-
-  .pickup-sun-half {
-    left: 28px;
-    width: 280px;
-    height: 140px;
-  }
-
-  .pickup-sun-circle {
-    width: 280px;
-    height: 280px;
-  }
-
-  .pickup-book-img {
-    top: 38px;
-    left: 62px;
-    width: 211px;
-    height: 302px;
-  }
-
-  .pickup-ticket-card {
-    right: 12px;
-    bottom: 12px;
-    width: 131px;
-    height: 89px;
-    padding: 10px 12px;
-  }
-
-  .pickup-ticket-card .ticket-accent {
-    width: 20px;
-    height: 2px;
-    margin-bottom: 4px;
-  }
-
-  .pickup-ticket-card .ticket-label {
-    font-size: 7.4px;
-    line-height: 10px;
-  }
-
-  .pickup-ticket-card .ticket-title {
-    font-size: 12.5px;
-    line-height: 17px;
-  }
-
-  .pickup-ticket-card .ticket-note {
-    font-size: 8px;
-    line-height: 12px;
   }
 
   .partner-banner {
