@@ -1487,10 +1487,16 @@ button {
   margin-bottom: 48px;
 }
 
+.order-routes-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
 .order-cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  gap: 28px;
 }
 
 .order-card {
@@ -1515,8 +1521,10 @@ button {
 
 .order-card-title {
   font-family: var(--font-display);
-  font-size: 3.2rem;
-  line-height: 1;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.09;
+  letter-spacing: 0;
+  text-transform: uppercase;
   color: var(--color-heading-dark);
   margin-top: 0;
   margin-bottom: 12px;
@@ -1529,8 +1537,10 @@ button {
 }
 
 .order-btn {
-  width: 100%;
-  margin-bottom: 12px;
+  width: fit-content;
+  align-self: flex-start;
+  margin-bottom: 0;
+  padding: 18px 30px;
 }
 
 .order-note-hint {
@@ -2340,20 +2350,30 @@ button {
 
   /* --- 12 GET THE BOOK --- */
   .section-get-book {
-    padding: 56px 0;
+    padding: 72px 0;
+  }
+
+  .order-routes-wrapper {
+    gap: 20px;
   }
 
   .order-cards-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 20px;
   }
 
   .order-card {
-    padding: 26px 18px;
+    padding: 32px 24px;
   }
 
   .order-card-title {
-    font-size: 2.2rem;
+    font-size: 3rem;
+    line-height: 1.15;
+  }
+
+  .order-btn {
+    width: fit-content;
+    padding: 16px 24px;
   }
 
   .bulk-order-bar {
